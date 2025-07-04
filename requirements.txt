@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+pydantic
+python-multipart
+torch
+torchvision
+opencv-python
+pillow
+ultralytics
