@@ -7,20 +7,9 @@ YOLO-based object detection on uploaded images.
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from yolov_model import predict
-from pathlib import Path
-from ultralytics import YOLO
 
 # Initialize the FastAPI application with a descriptive title for the documentation.
 app = FastAPI(title="DentAI YOLOv11 API")
-
-# --- Robust Model Loading ---
-# Construct an absolute path to the model file relative to this script's location.
-# This ensures the model is found regardless of the current working directory.
-MODEL_DIR = Path(__file__).parent
-MODEL_PATH = MODEL_DIR / "best.pt"
-
-# Load the model once at startup using the absolute path
-model = YOLO(MODEL_PATH)
 
 @app.get("/")
 async def root():

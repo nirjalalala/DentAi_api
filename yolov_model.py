@@ -3,7 +3,15 @@
 import cv2
 import base64
 import numpy as np
-from app import model
+from ultralytics import YOLO
+from pathlib import Path
+import io
+from PIL import Image
+import base64
+
+# Load model ONCE
+MODEL_PATH = Path(__file__).parent / "best.pt"
+model = YOLO(MODEL_PATH)
 
 
 def predict(image_bytes):
