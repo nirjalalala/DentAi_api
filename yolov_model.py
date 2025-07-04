@@ -1,19 +1,10 @@
 # yolov_model.py
 
-from ultralytics import YOLO
 import cv2
 import base64
 import numpy as np
-from pathlib import Path
+from app import model
 
-# --- Robust Model Loading ---
-# Construct an absolute path to the model file relative to this script's location.
-# This ensures the model is found regardless of the current working directory.
-MODEL_DIR = Path(__file__).parent
-MODEL_PATH = MODEL_DIR / "best.pt"
-
-# Load the model once at startup using the absolute path
-model = YOLO(MODEL_PATH)
 
 def predict(image_bytes):
     # Convert bytes to numpy array
